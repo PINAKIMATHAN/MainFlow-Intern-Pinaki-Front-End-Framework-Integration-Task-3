@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<title>Single Page Application using JavaScript</title>
+	</head>	
+	<script>
+	var pages = {
+		'home' : `Welcome to PM Company. This is our home page!<br/><br/><img src='game1.jpg' style='width:800px;' />`,
+		'aboutus' : `Our About Us page<br/><br/><img src='game2.jpg' style='width:800px;' />`,
+		'services' : `Our Services page<br/><br/><img src='game3.jpg' style='width:800px;' />`,
+		'contact' : `Our Contact Us page<br/><br/><img src='game4.jpg' style='width:800px;' />`
+	};
+
+	function getPageContent(page){
+		var contentToReturn;
+		switch(page){
+			case 'home':
+				contentToReturn = pages.home;
+				break;
+			case 'aboutus':
+				contentToReturn = pages.aboutus;
+				break;
+			case 'services':
+				contentToReturn = pages.services;
+				break;
+			case 'contact':
+				contentToReturn = pages.contact;
+				break;
+			default:
+				contentToReturn = pages.home;
+				break;				
+		}
+		document.getElementById('content').innerHTML = contentToReturn; 
+	}
+	</script>
+<body onLoad="getPageContent('home')">
+
+	<div style="width:10%; float: left;background: #eee;height: 100%;">
+		<ul>
+			<li style="line-height: 50px;">
+				<a href="#" onClick="getPageContent('home')">
+					Home
+				</a>
+			</li>
+			<li style="line-height: 50px;">
+				<a href="#" onClick="getPageContent('aboutus')">
+					About Us
+				</a>
+			</li>
+			<li style="line-height: 50px;">
+				<a href="#" onClick="getPageContent('services')">
+					Services
+				</a>
+			</li>
+			<li style="line-height: 50px;">
+				<a href="#" onClick="getPageContent('contact')">
+					Contact
+				</a>
+			</li>
+		</ul>
+
+	</div>
+<div style="width: 90%;float: right; background: #999;color:#fff; height: 100%;font-size: 50px;"><p style="margin-left: 50px;" id="content"><p></div>
+</body>
+
+</html>
